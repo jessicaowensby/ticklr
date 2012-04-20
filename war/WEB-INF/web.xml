@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+
+
+
+    <servlet>
+        <servlet-name>sign</servlet-name>
+        <servlet-class>com.jros.EnterDaylogServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sign</servlet-name>
+        <url-pattern>/sign</url-pattern>
+    </servlet-mapping>
+
+
+ <!--   <servlet>
+        <servlet-name>update</servlet-name>
+        <servlet-class>com.jros.UpdateDaylogServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>update</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>   -->
+    
+    <servlet>
+        <servlet-name>emailDaylog</servlet-name>
+        <servlet-class>com.jros.EmailDaylogServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>emailDaylog</servlet-name>
+        <url-pattern>/emailDaylog</url-pattern>
+    </servlet-mapping>
+  
+      <servlet>
+        <servlet-name>defaulttaskurl</servlet-name>
+        <servlet-class>com.jros.EmailDaylogServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>defaulttaskurl</servlet-name>
+        <url-pattern>/_ah/queue</url-pattern>
+    </servlet-mapping>
+    
+    <security-constraint>
+	    <web-resource-collection>
+	    	<web-resource-name>emailDaylog</web-resource-name>
+	    	<url-pattern>/_ah/queue</url-pattern>
+	    </web-resource-collection>
+	    <auth-constraint>
+	    	<role-name>admin</role-name>
+	    </auth-constraint>
+    </security-constraint>
+
+
+	<welcome-file-list>
+		<welcome-file>daylog.jsp</welcome-file>
+	</welcome-file-list>
+
+	
+</web-app>
